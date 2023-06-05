@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="abot"
+	xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- Matherials -->
+	<xacro:include filename="$(find abot_description)/urdf/abot_matherials.xacro" />
+	<!-- abot_base -->
+	<link name="abot_base">
+		<inertial>
+			<origin xyz="-0.024498 1.0952E-13 0.022295" rpy="0 0 0"/>
+			<mass value="0.27459"/>
+			<inertia ixx="0.00032396" ixy="-1.1142E-12" ixz="-9.1302E-06" iyy="0.00030091" iyz="-3.3253E-10" izz="0.00056103"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://abot_description/meshes/abot_base.STL" />
+			</geometry>
+			<material name="White" />
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://abot_description/meshes/abot_base.STL" />
+			</geometry>
+		</collision>
+	</link>
+	<!-- base_link -->
+	<link name="base_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<sphere radius="0.001" />
+			</geometry>
+		</visual>
+	</link>
+	<joint name="base_link_to_abot_base" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="abot_base" />
+	</joint>
+	<!-- Wheels -->
+	<xacro:include filename="$(find abot_description)/urdf/abot_left_wheel.xacro" />
+	<xacro:include filename="$(find abot_description)/urdf/abot_right_wheel.xacro" />
+	<xacro:include filename="$(find abot_description)/urdf/abot_caster_wheel.xacro" />
+</robot>
+
+
