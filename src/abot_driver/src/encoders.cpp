@@ -1,6 +1,6 @@
 #include "encoder_wiring_pi.h"
 #include <std_msgs/Float64.h>
-#include <chrono>
+#include <boost/chrono.hpp>
 
 typedef boost::chrono::steady_clock time_source;
 

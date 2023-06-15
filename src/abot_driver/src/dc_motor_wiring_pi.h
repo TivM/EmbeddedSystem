@@ -37,13 +37,13 @@ void DCMotorWiringPi::stop() {
 }
 
 void DCMotorWiringPi::cw(uint16_t val) {
-	pwmWrite(_enable_pin, protectOutput(val));
-	digitalWrite(_direction_pin, 1);
+	pwmWrite(_enable_pin, RPI_MAX_PWM_VALUE);
+	digitalWrite(_direction_pin, 0);
 }
 
 void DCMotorWiringPi::ccw(uint16_t val) {
-	pwmWrite(_enable_pin, protectOutput(val));
-	digitalWrite(_direction_pin, 0);
+	pwmWrite(_enable_pin, 0);
+	digitalWrite(_direction_pin, RPI_MAX_PWM_VALUE);
 }
 
 uint16_t DCMotorWiringPi::protectOutput(uint16_t val) {

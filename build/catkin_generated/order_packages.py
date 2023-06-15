@@ -2,4 +2,4 @@
 source_root_dir = '/home/vlad/ros/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/opt/ros/noetic'.split(';') if '/opt/ros/noetic' != '' else []
+underlay_workspaces = '/home/vlad/ros/devel;/opt/ros/noetic'.split(';') if '/home/vlad/ros/devel;/opt/ros/noetic' != '' else []
